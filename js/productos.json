@@ -3,7 +3,7 @@
         "id": 1,
         "estilo": "Clásico",
         "precio": 900,
-        "img": "../img/clasico.jpg",
+        "img": "./img/clasico.jpg",
         "volumen": 750,
         "stock": 60
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "estilo": "Black",
         "precio": 900,
-        "img": "../img/black.jpg",
+        "img": "./img/black.jpg",
         "volumen": 750,
         "stock": 30
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "estilo": "Pyment",
         "precio": 900,
-        "img": "../img/pyment-rose.jpg",
+        "img": "./img/pyment-rose.jpg",
         "volumen": 750,
         "stock": 30
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "estilo": "Brùnt",
         "precio": 900,
-        "img": "../img/jegerarven-brunt.jpg",
+        "img": "./img/jegerarven-brunt.jpg",
         "volumen": 750,
         "stock": 50
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "estilo": "Bittur",
         "precio": 900,
-        "img": "../img/nuevo-estilo.jpg",
+        "img": "./img/nuevo-estilo.jpg",
         "volumen": 750,
         "stock": 0
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "estilo": "Idunn",
         "precio": 350,
-        "img": "../img/absenta.jpg",
+        "img": "./img/absenta.jpg",
         "volumen": 200,
         "stock": 25
     }
