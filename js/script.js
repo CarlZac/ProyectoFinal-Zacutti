@@ -251,7 +251,11 @@ btnComprar.addEventListener('click', ()=>{
             }).then((result)=>{
                 if (result.isConfirmed){
                     localStorage.removeItem('cart');
-                    location.reload()
+                    resetCartDiv('productos');
+                    resetCartDiv('proximos');
+                    resetCartDiv('contenidoCarrito');
+                    mostrarCarrito(toggle, 'd-none');
+                    traerProductos();
                 }
             })
         }
