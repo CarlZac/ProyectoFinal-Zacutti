@@ -230,36 +230,50 @@ btnComprar.addEventListener('click', ()=>{
     for (const producto of carrito){
         total = compra+= (producto.precio * producto.cantidad);
     }
-    Swal.fire({
-        title: `El total de su compra es de $${total}.`,
-        icon: 'warning',
-        iconColor: '#BA9C53',
-        text: `¿${usuario.nombre}, deseas continuar con la compra?`,
-        background: '#242323',
-        color: '#FFFFF0',
-        showCancelButton: true,
-        confirmButtonText: 'Sí',
-        cancelButtonText: 'No'
-    }).then((result)=>{
-        if(result.isConfirmed){
-            Swal.fire({
-                title: `¡${usuario.nombre}, Muchas Gracias por tu Compra!`,
-                icon: 'success',
-                text: `Te eviaremos un WhatsApp al ${usuario.celular} para coordinar la entrega y el pago.`,
-                background: '#242323',
-                color: '#FFFFF0',
-            }).then((result)=>{
-                if (result.isConfirmed){
-                    localStorage.removeItem('cart');
-                    resetCartDiv('productos');
-                    resetCartDiv('proximos');
-                    resetCartDiv('contenidoCarrito');
-                    mostrarCarrito(toggle, 'd-none');
-                    traerProductos();
-                }
-            })
-        }
-    })
+    if (total == 0){
+        Swal.fire({
+            title: `¡${usuario.nombre}, Tu carrito está vacío!`,
+            icon: 'question',
+            text: `Volvé a la Tienda a sumar algunas botellas.`,
+            background: '#242323',
+            color: '#FFFFF0'
+        }).then((result)=>{
+            if (result.isConfirmed){
+                mostrarCarrito(toggle, 'd-none');
+            }
+        })
+    }else{
+        Swal.fire({
+            title: `El total de su compra es de $${total}.`,
+            icon: 'warning',
+            iconColor: '#BA9C53',
+            text: `¿${usuario.nombre}, deseas continuar con la compra?`,
+            background: '#242323',
+            color: '#FFFFF0',
+            showCancelButton: true,
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No'
+        }).then((result)=>{
+            if(result.isConfirmed){
+                Swal.fire({
+                    title: `¡${usuario.nombre}, Muchas Gracias por tu Compra!`,
+                    icon: 'success',
+                    text: `Te eviaremos un WhatsApp al ${usuario.celular} para coordinar la entrega y el pago.`,
+                    background: '#242323',
+                    color: '#FFFFF0'
+                }).then((result)=>{
+                    if (result.isConfirmed){
+                        localStorage.removeItem('cart');
+                        resetCartDiv('productos');
+                        resetCartDiv('proximos');
+                        resetCartDiv('contenidoCarrito');
+                        mostrarCarrito(toggle, 'd-none');
+                        traerProductos();
+                    }
+                })
+            }
+        })
+    }
 })
 
 //Función para restar botellas
