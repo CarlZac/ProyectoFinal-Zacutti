@@ -29,6 +29,7 @@ const proximos = [
 let log = document.querySelectorAll('.switch');
 let nombreUser = document.getElementById('name');
 let edadUser = document.getElementById('age');
+let celUser = document.getElementById('cel');
 let recordar = document.getElementById('recordarme');
 let modalLog = document.getElementById('modalLogin');
 let modal = new bootstrap.Modal(modalLog);
@@ -36,9 +37,11 @@ let modal = new bootstrap.Modal(modalLog);
 function guardarDatos(storage){
     let nombre = nombreUser.value;
     let edad = edadUser.value;
+    let tel = celUser.value;
     const usuario = {
         'nombre': nombre,
-        'edad': edad
+        'edad': edad,
+        'celular': tel
     }
     storage === 'sessionStorage' && sessionStorage.setItem('usuario', JSON.stringify(usuario));
     storage === 'localStorage' && localStorage.setItem('usuario', JSON.stringify(usuario));
@@ -68,7 +71,7 @@ function isLogged(usuario){
 
 let btnLogin = document.getElementById('login');
 btnLogin.addEventListener('click', () => {
-    if (!nombreUser.value || !edadUser.value) {
+    if (!nombreUser.value || !edadUser.value || !celUser.value) {
         Swal.fire({
             title: 'Todos los datos son necesarios para ingresar!',
             icon: 'error',
@@ -242,7 +245,7 @@ btnComprar.addEventListener('click', ()=>{
             Swal.fire({
                 title: `¡${usuario.nombre}, Muchas Gracias por tu Compra!`,
                 icon: 'success',
-                text: 'La compra se ha realizado con éxito!',
+                text: `Te eviaremos un WhatsApp al ${usuario.celular} para coordinar la entrega y el pago.`,
                 background: '#242323',
                 color: '#FFFFF0',
             }).then((result)=>{
