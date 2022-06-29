@@ -21,7 +21,7 @@ class proximo{
 
 const proximos = [
     new proximo(1, 'Cyser', 900, 'Hidromiel Melomel de Manzanas Rojas.', 750),
-    new proximo(2, 'Highland', 900, 'Hidromiel con Té Blanco y flores de .', 750),
+    new proximo(2, 'Highland', 900, 'Hidromiel con Té Blanco y flores de Brezo.', 750),
     new proximo(3, 'Driogtha', 1000, 'Destilado de Hidromiel Clásico.', 200),
 ]
 
